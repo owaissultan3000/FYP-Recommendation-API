@@ -34,7 +34,7 @@ def predict():
         name = inp['services'] 
         # print(name)
         # print(type(name))
-        pickle_in = open("D:\\model.pickle","rb")
+        pickle_in = open("model.pickle","rb")
         rules = pickle.load(pickle_in)
         res = {}
         x=rules[ rules['antecedents'] == set(name) ]['consequents']
@@ -74,7 +74,7 @@ def train():
         frequent_itemsets = fpgrowth(df, min_support=0.02, use_colnames=True)    
         rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.9)
         rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
-        pickle.dump(rules, open("C:\\Users\\Owais Sultan\\Downloads\\output\\test_api\\model.pickle", "wb"))
+        pickle.dump(rules, open("model.pickle", "wb"))
         return jsonify({"response":"done"})
 
 
