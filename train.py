@@ -1,9 +1,5 @@
-from flask import Flask,request,jsonify
+from flask import Flask
 import numpy as np 
-import matplotlib.pyplot as plt
-import pandas as pd
-from mlxtend.preprocessing import TransactionEncoder
-import pickle
 import json
 import sys
 import csv
