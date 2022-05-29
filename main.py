@@ -1,4 +1,4 @@
-
+import random
 from flask import Flask,request,jsonify
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -12,6 +12,25 @@ app = Flask(__name__)
 
 @app.route("/test",methods=['GET'])
 def predict():
+    services = {
+                "1":"Roofing",
+                "2":"Flooring",
+                "3":"Landscaping",
+                "4":"Electrical",
+                "5":"Junk Removal",
+                "6":"Moving",
+                "7":"Masonary",
+                "8":"Appliance",
+                "9":"Plumbing",
+                "10":"Locksmith",
+                "11":"HVAC",
+                "12":"Pest Control",
+                "13":"Painting",
+                "14":"Towing",
+                "15":"Vehicle Repair"
+
+    }
+
     if request.method == 'GET':
         inp = request.json
         name = inp['services'] 
@@ -28,6 +47,10 @@ def predict():
                     res[brk[j]] = 1
                 
         print(json.dumps(list(res.keys())))
+
+        if bool(res) == False:
+            for i in range(0,9):
+             res[services[str(random.randint(1,15))]] = str(i)
 
         return jsonify({"response":json.dumps(list(res.keys()))})
 
