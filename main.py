@@ -46,7 +46,7 @@ def predict():
                 if brk[j]!= 'nan':
                     res[brk[j]] = 1
                 
-        print(json.dumps(list(res.keys())))
+        # print(json.dumps(list(res.keys())))
 
         if bool(res) == False:
             for i in range(0,9):
