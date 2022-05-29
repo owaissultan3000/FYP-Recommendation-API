@@ -1,9 +1,7 @@
 import random
 from flask import Flask,request,jsonify
-import numpy as np 
-import matplotlib.pyplot as plt
 import pandas as pd
-from mlxtend.frequent_patterns import association_rules,apriori, fpmax, fpgrowth
+from mlxtend.frequent_patterns import association_rules, fpgrowth
 from mlxtend.preprocessing import TransactionEncoder
 import pickle
 import json
