@@ -11,21 +11,21 @@ app = Flask(__name__)
 @app.route("/test",methods=['GET'])
 def predict():
     services = {
-                "1":"Roofing",
-                "2":"Flooring",
-                "3":"Landscaping",
-                "4":"Electrical",
-                "5":"Junk Removal",
-                "6":"Moving",
-                "7":"Masonary",
-                "8":"Appliance",
-                "9":"Plumbing",
-                "10":"Locksmith",
-                "11":"HVAC",
-                "12":"Pest Control",
-                "13":"Painting",
-                "14":"Towing",
-                "15":"Vehicle Repair"
+                "1":"roofing services",
+                "2":"flooring services",
+                "3":"landscaping services",
+                "4":"electrical services",
+                "5":"junk removal",
+                "6":"moving services",
+                "7":"masonry services",
+                "8":"appliance services",
+                "9":"plumbing services",
+                "10":"locksmith services",
+                "11":"hvac services",
+                "12":"pest control",
+                "13":"painting services",
+                "14":"towing services",
+                "15":"vehicle repair"
 
     }
 
@@ -55,7 +55,7 @@ def predict():
 @app.route("/train",methods=['GET'])
 def train():
     if request.method == 'GET':
-        Data = pd.read_csv('data2.csv', header = None)
+        Data = pd.read_csv('newdata.csv', header = None)
         Data.drop(columns=Data.columns[:1], 
                 axis=1, 
                 inplace=True)
