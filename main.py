@@ -8,7 +8,7 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/test",methods=['GET'])
+@app.route("/test",methods=['POST'])
 def predict():
     services = {
                 "1":"roofing services",
@@ -29,7 +29,7 @@ def predict():
 
     }
 
-    if request.method == 'GET':
+    if request.method == 'POST':
         inp = request.json
         name = inp['services'] 
         # print(name)
